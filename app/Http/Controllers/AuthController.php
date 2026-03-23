@@ -9,4 +9,7 @@ class AuthController extends Controller
     public function login(){
         return "Hello world Login";
     }
+    public function register(){
+        return "Hello Register";
+    }
 }
