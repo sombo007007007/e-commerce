@@ -12,7 +12,6 @@ class RoleController extends Controller
     {
         try {
             $roles_store = new Role();
-            // dd($roles_store);
             $request->validate([
                 'name' => 'required|unique:roles,name',
             ], [], [
