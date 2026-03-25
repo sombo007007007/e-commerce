@@ -19,6 +19,7 @@ class User extends Authenticatable
      *
      * @var list<string>
      */
+    public $timestamps = false;
     protected $fillable = [
         'name',
         'email',
@@ -49,8 +50,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
-    public function roles() {
-        return $this->belongsToMany(Role::class, 'role_user','user_id','role_id');
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class , 'role_user', 'user_id', 'role_id');
     }
 
     public function hasRole($roleName)
