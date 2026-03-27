@@ -7,6 +7,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\RouleclinetController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CartController;
 
 Route::post('/v1/login', [AuthController::class , 'login']);
 Route::post('/v1/register', [AuthController::class , 'register']);
@@ -29,4 +30,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/v1/product/edit_product/{product_id}', [ProductController::class , 'edit_product']);
     Route::put('/v1/product/update_product/{product_id}', [ProductController::class , 'update_product']);
     Route::delete('/v1/product/destroy_product/{product_id}', [ProductController::class , 'destroy_product']);
+    //cart
+    Route::get('/v1/cart/index_cart', [CartController::class , 'index_cart']);
+    Route::post('/v1/cart/store_cart', [CartController::class , 'store_cart']);
+    Route::get('/v1/cart/edit_cart/{cart_id}', [CartController::class , 'edit_cart']);
+    Route::put('/v1/cart/update_cart/{cart_id}', [CartController::class , 'update_cart']);
 });
