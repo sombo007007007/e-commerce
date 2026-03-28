@@ -9,7 +9,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\Cart_itemController;
-
+use App\Http\Controllers\OrderControlelr;
 
 Route::post('/v1/login', [AuthController::class, 'login']);
 Route::post('/v1/register', [AuthController::class, 'register']);
@@ -43,4 +43,10 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/v1/cart_item/edit_cart_item/{cart_item_id}', [Cart_itemController::class, 'edit_cart_item']);
     Route::put('/v1/cart_item/update_cart_item/{cart_item_id}', [Cart_itemController::class, 'update_cart_item']);
     Route::delete('/v1/cart_item/destroy_cart_item/{cart_item_id}', [Cart_itemController::class, 'destroy_cart_item']);
+    // order
+    Route::get('/v1/order/index_order', [OrderControlelr::class, 'index_order']);
+    Route::post('/v1/order/store_order', [OrderControlelr::class, 'store_order']);
+    Route::get('/v1/order/edit_order/{order_id}', [OrderControlelr::class, 'edit_order']);
+    Route::post('/v1/order/update_order/{order_id}', [OrderControlelr::class, 'update_order']);
+    Route::delete('/v1/order/destroy_order/{order_id}', [OrderControlelr::class, 'destroy_order']);
 });
